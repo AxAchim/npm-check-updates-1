@@ -57,7 +57,9 @@ const uncode = (s: string) => s.replace(/`/g, '')
           : notifier.update.type === 'minor'
           ? chalk.yellow('{latestVersion}')
           : chalk.green('{latestVersion}')
-      }
+
+          + chalk.blue.underline(pkg.homepage || '')
+      } 
 Run ${chalk.cyan('{updateCommand}')} to update
 ${chalk.dim.underline(
   notifier.update.type === 'major' ? releaseUrls.map(url => chalk.dim.underline(url)).join('\n') : compareUrl,
